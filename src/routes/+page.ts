@@ -4,5 +4,6 @@ export async function load({ fetch }) {
 
   return {
     images: data as Array<{ public_id: string }>,
+    nextCursor: next_cursor,
   };
 }
