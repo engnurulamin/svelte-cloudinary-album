@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import {CldImage} from 'svelte-cloudinary'
+  import LoadMore from './LoadMore.svelte';
   export let data;
   let images= data.images;
   let nextCursor = data.nextCursor;
@@ -12,12 +13,13 @@
     <CldImage src={public_id} width="400" height="400"/>
   </a>
   {/each}
-  <button on:click={async ()=>{
+  <LoadMore onLoad={async ()=>{
     const response = await fetch(`/api/images?next=${nextCursor}`)
     const { data, next_cursor } = await response.json();
     images = [...images, ...data];
     nextCursor = next_cursor
-  }}>Load more</button>
+  }}/>
+  
 </div>
 
 
