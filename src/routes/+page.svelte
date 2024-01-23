@@ -13,12 +13,15 @@
     <CldImage src={public_id} width="400" height="400"/>
   </a>
   {/each}
+  
+  {#if nextCursor && nextCursor.length}
   <LoadMore onLoad={async ()=>{
     const response = await fetch(`/api/images?next=${nextCursor}`)
     const { data, next_cursor } = await response.json();
     images = [...images, ...data];
     nextCursor = next_cursor
   }}/>
+  {/if}
   
 </div>
 
