@@ -4,7 +4,6 @@
   export let data;
   let images= data.images;
   let nextCursor = data.nextCursor;
-  console.log(data)
 </script>
 
 <div class="grid auto-cols-400 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
