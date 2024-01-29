@@ -1,4 +1,4 @@
-export async function load({ fetch, params }) {
+export async function load({ fetch, params }: any) {
   const id = params.id;
   const upload = "upload/";
   const response = await fetch(`/api/image?id=${upload + id}`);
